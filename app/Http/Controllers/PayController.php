@@ -119,7 +119,11 @@ class PayController extends Controller
         $payData['method'] = null; // O asigna un valor por defecto
     }
 
-    return view('forms.pay.view', compact('payData'));
+      // Obtener todos los datos de la tabla 'payment methods'
+      $response = Http::get($url.'/payment_methods');
+      $methodsData = $response->json();
+
+    return view('forms.pay.view', compact('payData', 'methodsData'));
     }
 
     
@@ -134,9 +138,15 @@ class PayController extends Controller
         'state' => $request->state
     ]);
 
-    dd($response);   
+    if ($response->successful()) {
+        // Procesa la respuesta de la API
+        return redirect()->route('pays.index');
+    } else {
+        // Maneja el error de la solicitud
+        dd($response);
+    }
 
-    return redirect()->route('pays.index');
+    
     }
 
     public function delete($idPay)

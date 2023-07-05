@@ -6,6 +6,7 @@ use App\Http\Controllers\HotelsController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\PaymentsMethodsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoomsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', function () { 
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -79,6 +80,17 @@ Route::get('/pay/show/{idPay}', [PayController::class, 'show'])->name('pay.show'
 Route::get('/pay/{idPay}', [PayController::class, 'view'])->name('pay.view');
 Route::put('/pay/update', [PayController::class, 'update'])->name('pay.update');
 Route::get('/pay/delete/{idPay}', [PayController::class, 'delete'])->name('pay.delete');
+
+//Routes for Rooms ----------------------------------------------------------
+Route::get('/rooms', [RoomsController::class, 'index'])->name('rooms.index');
+Route::get('/room', [RoomsController::class, 'create'])->name('room.create');
+Route::post('/room', [RoomsController::class, 'store'])->name('room.store');
+Route::get('/room/show/{idRoom}', [RoomsController::class, 'show'])->name('room.show');
+Route::get('/room/{idRoom}', [RoomsController::class, 'view'])->name('room.view');
+Route::put('/room/update', [RoomsController::class, 'update'])->name('room.update');
+Route::get('/room/delete/{idRoom}', [RoomsController::class, 'delete'])->name('room.delete');
+
+
 
 
 

@@ -383,6 +383,20 @@ return [
                 ]
             ]
         ],
+        [
+            'text'    => 'Rooms',
+            'icon'    => 'fas fa-fw fa-person-booth',
+            'submenu' => [
+                [
+                    'text' => 'Rooms',
+                    'url'  => 'rooms',
+                ],
+                [
+                    'text'    => 'Add New Room',
+                    'url'     => 'room'
+                ]
+            ]
+        ],
 
 
         [

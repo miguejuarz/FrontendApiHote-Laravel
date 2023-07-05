@@ -23,7 +23,7 @@
             <th scope="col">Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody> 
             @foreach ($data as $country)
           <tr>
             <td>{{ $country['id'] }}</td>

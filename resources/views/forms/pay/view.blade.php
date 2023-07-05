@@ -17,9 +17,18 @@
         <label for="reservation_id" class="form-label">No. Reservation</label>
         <input type="text" class="form-control" id="reservation_id"  name="reservation_id" value="{{ $payData['reservation_id'] }}">
     </div>
-    <div class="mb-3">
+     <div class="mb-3">
         <label for="method_id" class="form-label">Payment Method</label>
+       {{-- 
         <input type="text" class="form-control" id="method_id"  name="method_id" value="{{ $payData['method']['name'] }}">
+    </div> --}}
+    <div class="mb-3">
+    <select name="method_id" id="method_id">
+        <option selected value="{{ $payData['method_id'] }}">{{ $payData['method']['name']}}</option>
+        @foreach ($methodsData as $method)
+        <option value="{{ $method['id']}}"> {{ $method['name']}} </option>
+        @endforeach
+    </select>
     </div>
     <div class="mb-3">
         <label for="amountPayable" class="form-label">Amount</label>
