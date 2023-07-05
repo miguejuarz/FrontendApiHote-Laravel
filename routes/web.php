@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\CountriesController;
+use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\HotelsController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\PaymentsMethodsController;
@@ -89,6 +90,16 @@ Route::get('/room/show/{idRoom}', [RoomsController::class, 'show'])->name('room.
 Route::get('/room/{idRoom}', [RoomsController::class, 'view'])->name('room.view');
 Route::put('/room/update', [RoomsController::class, 'update'])->name('room.update');
 Route::get('/room/delete/{idRoom}', [RoomsController::class, 'delete'])->name('room.delete');
+
+//Routes for Customers--------------------------------------------------------
+Route::get('/customers', [CustomersController::class, 'index'])->name('customers.index');
+Route::get('/customer', [CustomersController::class, 'create'])->name('customer.create');
+Route::post('/customer', [CustomersController::class, 'store'])->name('customer.store');
+Route::get('/customer/show/{idCustomer}', [CustomersController::class, 'show'])->name('customer.show');
+Route::get('/customer/edit/{idCustomer}', [CustomersController::class, 'view'])->name('customer.view');
+Route::put('/customer/update', [CustomersController::class, 'update'])->name('customer.update');
+Route::get('/customer/delete/{idCustomer}', [CustomersController::class, 'delete'])->name('customer.delete');
+
 
 
 

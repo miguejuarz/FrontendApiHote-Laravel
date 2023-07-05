@@ -397,6 +397,20 @@ return [
                 ]
             ]
         ],
+        [
+            'text'    => 'Customers',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+                [
+                    'text' => 'Customers',
+                    'url'  => 'customers',
+                ],
+                [
+                    'text'    => 'Add New Customer',
+                    'url'     => 'customer'
+                ]
+            ]
+        ],
 
 
         [
